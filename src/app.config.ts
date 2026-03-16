@@ -4,7 +4,14 @@ export default defineAppConfig({
     'pages/repair/index',
     'pages/payment/index',
     'pages/notice/index',
-    'pages/profile/index'
+    'pages/profile/index',
+    // 后台管理页面
+    'pages/admin/login/index',
+    'pages/admin/dashboard/index',
+    'pages/admin/repair/index',
+    'pages/admin/payment/index',
+    'pages/admin/notice/index',
+    'pages/admin/user/index'
   ],
   window: {
     backgroundTextStyle: 'light',
