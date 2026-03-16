@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'property-server',
-      cwd: '/var/www/property/server',
+      cwd: './server',
       script: 'dist/main.js',
       instances: 1,
       autorestart: true,
@@ -12,8 +12,8 @@ module.exports = {
         NODE_ENV: 'production',
         PORT: 3000
       },
-      error_file: '/var/www/property/logs/error.log',
-      out_file: '/var/www/property/logs/out.log',
+      error_file: './logs/error.log',
+      out_file: './logs/out.log',
       log_date_format: 'YYYY-MM-DD HH:mm:ss'
     }
   ]
