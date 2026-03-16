@@ -138,6 +138,24 @@ export default defineConfig<'vite'>(async (merge, _env) => {
             };
           },
         },
+        {
+          name: 'allowed-hosts-plugin',
+          configResolved(config) {
+            // 直接修改 resolved config
+            if (config.server) {
+              (config.server as any).allowedHosts = true;
+            }
+          },
+          config() {
+            return {
+              server: {
+                host: true,
+                strictPort: true,
+                allowedHosts: true as any,
+              },
+            };
+          },
+        },
         UnifiedViteWeappTailwindcssPlugin({
           rem2rpx: true,
           cssEntries: [path.resolve(__dirname, '../src/app.css')],
@@ -176,6 +194,9 @@ export default defineConfig<'vite'>(async (merge, _env) => {
         port: 5000,
         host: '0.0.0.0',
         open: false,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
         proxy: {
           '/api': {
             target: 'http://localhost:3000',
