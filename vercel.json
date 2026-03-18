@@ -1,7 +1,8 @@
 {
   "version": 2,
   "public": true,
-  "buildCommand": "pnpm install && pnpm build:web",
+  "installCommand": "npm install -g pnpm && pnpm install",
+  "buildCommand": "pnpm build:web",
   "outputDirectory": "dist-web",
   "functions": {
     "api/index.js": {
@@ -10,10 +11,5 @@
   },
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/index.js" }
-  ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/index.js" },
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
